@@ -85,4 +85,28 @@ img.addEventListener("mouseleave", () => {
   img.src = img.dataset.original;
 });
 
+//ギャラリー用
+const images = document.querySelectorAll(".gallery img");
+const overlay = document.createElement("div");
+overlay.className = "overlay";
+document.body.appendChild(overlay);
+
+images.forEach(img => {
+  img.addEventListener("click", () => {
+    if (img.classList.contains("active")) {
+      img.classList.remove("active");
+      overlay.classList.remove("active");
+    } else {
+      images.forEach(i => i.classList.remove("active"));
+      img.classList.add("active");
+      overlay.classList.add("active");
+    }
+  });
+});
+
+overlay.addEventListener("click", () => {
+  images.forEach(i => i.classList.remove("active"));
+  overlay.classList.remove("active");
+});
+
 
