@@ -65,4 +65,24 @@ aa.addEventListener("mouseleave", () => {
   startAnimation(true); // ← ここが肝！
 });
 
+//画像動かし
+const input = document.getElementById("placeOfBirth");
+const container = document.getElementById("birthPlaceImage");
+const img = container.querySelector("img");
+
+// クリックでふんわり表示
+input.addEventListener("click", () => {
+  container.classList.toggle("active");
+});
+
+// 画像ホバーで切替
+img.addEventListener("mouseenter", () => {
+  img.dataset.original = img.src;
+  img.src = img.dataset.hover;
+});
+
+img.addEventListener("mouseleave", () => {
+  img.src = img.dataset.original;
+});
+
 
