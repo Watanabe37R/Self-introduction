@@ -132,23 +132,21 @@ main {
 	padding-inline-start: 0px;
 }
 
+
 main h2 {
-	background-image: url(../img/test.png);
-
-	background-repeat: no-repeat;
-	background-position: left center;
-	background-size: 110%;
-
+  background-image: url(../img/test.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 125%;
 }
 
 main h3 {
-	background-image: url(../img/test.png);
-
-	background-repeat: no-repeat;
-	background-position: left;
-	background-size: 100%;
-
+  background-image: url(../img/test.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 125%;
 }
+
 
 #AA.Mono {
 	font-family: monospace;
