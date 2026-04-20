@@ -9,7 +9,7 @@ body {
 	padding: 0;
 	background-color: cadetblue;
 	height: 100%;
-	/* 追加推奨 */
+
 }
 
 body {
@@ -23,25 +23,52 @@ body {
 	gap: 0;
 }
 
+
 header {
 	grid-area: header;
 	background: lightblue;
 	height: 120px;
 	position: sticky;
 	top: 0;
-	/* ★★★ 必須！ */
 	z-index: 1000;
 	padding: 20px;
 
 	display: flex;
-	/* 横並び */
 	justify-content: space-between;
-	/* 左右に分ける */
-
+	/* 左・中央・右 */
+	align-items: center;
+	/* 縦中央揃え */
 }
 
+/*へttだーさん分割*/
+.header-left,
+.header-center,
+.header-right {
+	display: flex;
+	align-items: center;
+}
+
+.header-left {
+	display: flex;
+	gap: 0px;
+	/* A と B の間隔 */
+}
+
+
+/* 中央を完全にセンターにしたい */
+.header-center {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+
+
 #nav.hidden {
-	display: none;
+	opacity: 0;
+	transform: translateY(-10px); /* 少し上へ */
+	pointer-events: none;        /* クリック無効 */
+
 }
 
 #nav {
@@ -53,6 +80,13 @@ header {
 	top: 160px;
 	right: 14px;
 	bottom: 0;
+
+
+	opacity: 1;
+	transform: translateY(0);
+	transition: 
+	  opacity 0.3s ease,
+	  transform 0.3s ease;
 
 }
 
@@ -78,9 +112,71 @@ main {
 	height: 40px;
 	align-self: flex-end;
 
+	position: absolute;
+	bottom: 20px;
+	/* padding分 */
+	right: 20px;
+
+
 }
 
-/* nav-list はそのまま（問題なさそう） */
+/*メニューの≡を×にする*/
+.menu-btn {
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	position: relative;
+	background: none;
+	border: none;
+	padding: 0;
+
+	background: #a3a3a3;            /* 背景 */
+	border: 2px solid #333;      /* 枠線 */
+	border-radius: 6px;          /* 角丸（0にすると完全な四角） */
+
+}
+
+/* 3本線 */
+.menu-btn span {
+	position: absolute;
+	left: 50%;
+	width: 24px;
+	height: 2px;
+	background: #000;
+	border-radius: 2px;
+	transform: translateX(-50%);
+	transition: all 0.3s ease;
+}
+
+.menu-btn span:nth-child(1) {
+	top: 12px;
+}
+
+.menu-btn span:nth-child(2) {
+	top: 19px;
+}
+
+.menu-btn span:nth-child(3) {
+	top: 26px;
+}
+
+/* ====== アクティブ時（×） ====== */
+.menu-btn.active span:nth-child(1) {
+	top: 19px;
+	transform: translateX(-50%) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2) {
+	opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+	top: 19px;
+	transform: translateX(-50%) rotate(-45deg);
+}
+
+
+
 .nav-list {
 	list-style: none;
 	padding: 5%;
@@ -134,17 +230,17 @@ main {
 
 
 main h2 {
-  background-image: url(../img/test.png);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 125%;
+	background-image: url(../img/test.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 125%;
 }
 
 main h3 {
-  background-image: url(../img/test.png);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 125%;
+	background-image: url(../img/test.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 125%;
 }
 
 
@@ -275,17 +371,19 @@ main h3 {
 
 /* 拡大中の画像 */
 .gallery img.active {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: auto;
-  height: auto;
-  max-width: 80vw;
-  max-height: 80vh;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: auto;
+	height: auto;
+	max-width: 80vw;
+	max-height: 80vh;
 
-  transform: translate(-50%, -50%);
-  object-fit: contain; /* ← 拡大時は全体表示 */
-  z-index: 2000;/*←オーバーレイ時に上にくるように(暗くならないように)*/
+	transform: translate(-50%, -50%);
+	object-fit: contain;
+	/* ← 拡大時は全体表示 */
+	z-index: 2000;
+	/*←オーバーレイ時に上にくるように(暗くならないように)*/
 }
 
 
@@ -307,12 +405,14 @@ main h3 {
 
 
 table {
-  border-collapse: collapse; /* ← 超重要 */
-  width: 100%;
+	border-collapse: collapse;
+	/* ← 超重要 */
+	width: 100%;
 }
 
-th, td {
-  border: 1px solid #ccc;
-  padding: 0.75rem;
-  text-align: left;
+th,
+td {
+	border: 1px solid #ccc;
+	padding: 0.75rem;
+	text-align: left;
 }
