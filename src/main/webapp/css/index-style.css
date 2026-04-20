@@ -162,16 +162,16 @@ main {
 	flex-direction: column;
 }
 
-.nav-list a {
+a {
 	text-decoration: none;
 	color: black;
 }
 
-.nav-list a:hover {
+a:hover {
 	background-color: aqua;
 }
 
-.nav-list a:visited {
+a:visited {
 	color: black;
 }
 
@@ -187,11 +187,6 @@ main {
   padding: 8px;
   border-radius: 12px;
   background-color: #fafafa;
-}
-
-::content p{
-	margin-top: 0px;
-	border-bottom: 0px;
 }
 
 .item {
@@ -256,5 +251,4 @@ main h3 {
 	background-repeat: no-repeat;
 	background-position: left;
 	background-size: 100%;
-
 }

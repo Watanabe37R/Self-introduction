@@ -164,16 +164,16 @@ main {
 	flex-direction: column;
 }
 
-.nav-list a {
+a {
 	text-decoration: none;
 	color: black;
 }
 
-.nav-list a:hover {
+a:hover {
 	background-color: aqua;
 }
 
-.nav-list a:visited {
+a:visited {
 	color: black;
 }
 
@@ -200,90 +200,3 @@ main h2 {
 #AA.Mono {
 	font-family: monospace;
 }
-.verticalArrangement{
-	display: flex;
-	flex-direction: column;
-}
-.gameBanner{
-	height: 300px;
-}
-
-.AAmove {
-  white-space: pre !important;
-  font-family: monospace;
-}
-
-/*画像ふんわり表示*/
-.birth-place-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-/* コンテナ */
-
-#birthPlaceImage {
-  max-width: 0;
-  max-height: 0;
-  overflow: hidden;
-
-  opacity: 0;
-  transition:
-    max-width 0.4s ease,
-    max-height 0.4s ease,
-    opacity 0.3s ease;
-}
-
-#birthPlaceImage.active {
-  max-width: 37.5rem;
-  max-height: 25rem;
-  opacity: 1;
-}
-
-
-/* 表示状態 */
-#birthPlaceImage.active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-/* 画像 */
-#birthPlaceImage img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-  transform: scale(0.95);
-  transition: transform 0.4s ease;
-}
-
-/* 画像ホバーでズーム */
-#birthPlaceImage img:hover {
-  transform: scale(1);
-}
-
-/*id=bigにつかう、マウスオーバーで拡大*/
-
-#big {
-  transform-origin: left center;
-  transition: transform 0.3s ease;
-}
-
-#big:hover {
-  transform: scale(3);
-}
-
-/*svgのため*/
-.ivs-char svg,
-.ivs-char {
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.1em;
-  fill: currentColor;
-}
-
-
-
-
-
-
