@@ -25,21 +25,34 @@ body {
 
 header {
 	grid-area: header;
-	background: lightblue;
+	background-color: aquamarine;
 	height: 120px;
 	position: sticky;
 	top: 0;
-	/* ★★★ 必須！ */
 	z-index: 1000;
 	padding: 20px;
 
 	display: flex;
-	/* 横並び */
 	justify-content: space-between;
-	/* 左右に分ける */
-
+	/* 左・中央・右 */
+	align-items: center;
+	/* 縦中央揃え */
 }
 
+/*へttだーさん分割*/
+.header-left,
+.header-center,
+.header-right {
+	display: flex;
+	align-items: center;
+}
+
+/* 中央を完全にセンターにしたい */
+.header-center {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
 #nav.hidden {
 	display: none;
 }
@@ -64,6 +77,66 @@ main {
 	/* メインだけスクロールさせるために重要 */
 	padding: 20px;
 }
+
+/*メニューの≡を×にする*/
+.menu-btn {
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	position: relative;
+	background: none;
+	border: none;
+	padding: 0;
+
+	background: #a3a3a3;
+	/* 背景 */
+	border: 2px solid #333;
+	/* 枠線 */
+	border-radius: 6px;
+	/* 角丸（0にすると完全な四角） */
+
+}
+
+/* 3本線 */
+.menu-btn span {
+	position: absolute;
+	left: 50%;
+	width: 24px;
+	height: 2px;
+	background: #000;
+	border-radius: 2px;
+	transform: translateX(-50%);
+	transition: all 0.3s ease;
+}
+
+.menu-btn span:nth-child(1) {
+	top: 12px;
+}
+
+.menu-btn span:nth-child(2) {
+	top: 19px;
+}
+
+.menu-btn span:nth-child(3) {
+	top: 26px;
+}
+
+/* ====== アクティブ時（×） ====== */
+.menu-btn.active span:nth-child(1) {
+	top: 19px;
+	transform: translateX(-50%) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2) {
+	opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+	top: 19px;
+	transform: translateX(-50%) rotate(-45deg);
+}
+
+
 
 #footer {
 	grid-area: footer;
@@ -101,6 +174,43 @@ main {
 .nav-list a:visited {
 	color: black;
 }
+
+#contents {
+  display: flex;
+  flex-direction: column; /* ← 縦並び */
+  gap: 0px;
+  margin: 0;
+
+  display: inline-block;
+
+  border: 1px solid #e0e0e0;
+  padding: 8px;
+  border-radius: 12px;
+  background-color: #fafafa;
+}
+
+::content p{
+	margin-top: 0px;
+	border-bottom: 0px;
+}
+
+.item {
+  display: flex;          /* ← img と a を横並び */
+  align-items: center;
+  gap: 0px;
+  margin: 0;
+}
+
+.item img{
+	height: 5rem;
+	width: auto;
+}
+
+
+
+
+
+
 
 #AA {
 	font-size: 16px;
