@@ -85,6 +85,22 @@ img.addEventListener("mouseleave", () => {
 	img.src = img.dataset.original;
 });
 
+//その２
+
+const img2 = document.querySelector('#workMapImage img');
+
+const originalSrc = img2.src;
+const hoverSrc = img2.dataset.hover;
+
+img2.addEventListener('mouseenter', () => {
+  img2.src = img2.dataset.hover;
+});
+
+img2.addEventListener('mouseleave', () => {
+  img2.src = originalSrc;
+});
+
+
 //ギャラリー用
 const images = document.querySelectorAll(".gallery img");
 const overlay = document.createElement("div");

@@ -26,7 +26,11 @@ body {
 
 header {
 	grid-area: header;
-	background: lightblue;
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.1),
+			rgba(255, 255, 255, 0.1)),
+		url(../img/minecraftひつ石島大橋.jpg);
+	background-position: 0% 50%;
 	height: 120px;
 	position: sticky;
 	top: 0;
@@ -62,12 +66,22 @@ header {
 	transform: translateX(-50%);
 }
 
+/*縁あり文字*/
+h2.outline {
+	font-size: 60px;
+	color: #000000;
+	/* 文字色 */
+	-webkit-text-stroke: 1px white;
+}
+
 
 
 #nav.hidden {
 	opacity: 0;
-	transform: translateY(-10px); /* 少し上へ */
-	pointer-events: none;        /* クリック無効 */
+	transform: translateY(-10px);
+	/* 少し上へ */
+	pointer-events: none;
+	/* クリック無効 */
 
 }
 
@@ -84,20 +98,31 @@ header {
 
 	opacity: 1;
 	transform: translateY(0);
-	transition: 
-	  opacity 0.3s ease,
-	  transform 0.3s ease;
+	transition:
+		opacity 0.3s ease,
+		transform 0.3s ease;
 
 }
 
 main {
 	grid-area: main;
-	background: lightyellow;
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.7),
+			rgba(255, 255, 255, 0.7)),
+		url(../img/minecraft東大寺.png);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
 	overflow-y: auto;
 	min-height: 0;
 	/* メインだけスクロールさせるために重要 */
 	padding: 20px;
+	flex-direction: column;
 }
+
+
+
 
 #footer {
 	grid-area: footer;
@@ -130,9 +155,12 @@ main {
 	border: none;
 	padding: 0;
 
-	background: #a3a3a3;            /* 背景 */
-	border: 2px solid #333;      /* 枠線 */
-	border-radius: 6px;          /* 角丸（0にすると完全な四角） */
+	background: #a3a3a3;
+	/* 背景 */
+	border: 2px solid #333;
+	/* 枠線 */
+	border-radius: 6px;
+	/* 角丸（0にすると完全な四角） */
 
 }
 
@@ -199,6 +227,8 @@ main {
 }
 
 #AA {
+	display: inline-block;
+	background-color: white;
 	font-size: 16px;
 	line-height: 1.125;
 	letter-spacing: 0;
@@ -206,6 +236,13 @@ main {
 	text-wrap: none;
 	white-space: nowrap;
 	font-family: "MS Pゴシック", "ＭＳ　Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+p,
+h4,
+table {
+	display: inline-block;
+	background-color: white;
 }
 
 .ListBox {
@@ -287,6 +324,16 @@ main h3 {
 	max-height: 25rem;
 	opacity: 1;
 }
+
+
+#workMapImage img {
+  max-width: 37.5rem;
+  max-height: 25rem;
+  display: block;
+
+  transition: opacity 0.25s ease;
+}
+
 
 
 /* 表示状態 */
@@ -382,7 +429,7 @@ main h3 {
 	transform: translate(-50%, -50%);
 	object-fit: contain;
 	/* ← 拡大時は全体表示 */
-	z-index: 2000;
+	z-index: 5000;
 	/*←オーバーレイ時に上にくるように(暗くならないように)*/
 }
 
