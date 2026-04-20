@@ -291,7 +291,7 @@ main h3 {
 }
 
 .gameBanner {
-	height: 15rem;
+	height: 10rem;
 }
 
 .AAmove {
@@ -387,7 +387,7 @@ main h3 {
 
 .horizontalArrangement {
 	display: flex;
-	gap: 1.5rem;
+	gap: 1rem;
 }
 
 .item {
