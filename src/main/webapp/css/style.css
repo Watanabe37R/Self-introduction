@@ -200,3 +200,27 @@ main h2 {
 #AA.Mono {
 	font-family: monospace;
 }
+
+#contents {
+  display: flex;
+  flex-direction: column; /* ← 縦並び */
+  gap: 0px;
+  margin: 0;
+  display: inline-block;
+  border: 1px solid #e0e0e0;
+  padding: 8px;
+  border-radius: 12px;
+  background-color: #fafafa;
+}
+
+.item {
+  display: flex;          /* ← img と a を横並び */
+  align-items: center;
+  gap: 0px;
+  margin: 0;
+}
+
+.item img{
+	height: 5rem;
+	width: auto;
+}
